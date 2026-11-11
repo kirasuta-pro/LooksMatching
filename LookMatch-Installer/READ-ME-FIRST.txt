@@ -1,0 +1,19 @@
+LOOK MATCH - INSTALL
+
+Requires Premiere Pro 25.6 or newer (UXP plugins) and the Creative Cloud desktop app.
+
+EASY WAY
+1. Unzip this whole folder (don't run things from inside the zip).
+2. Close Premiere Pro.
+3. Double-click Install-LookMatch.bat  (or just double-click LookMatch.ccx).
+4. Open Premiere -> Window -> Extensions (or Plugins) -> Look Match.
+
+IF THE EASY WAY FAILS (unsigned-plugin warnings are common)
+Use Adobe's free "UXP Developer Tool":
+1. Creative Cloud app -> All apps -> search "UXP Developer Tool" -> Install.
+2. Open it, make sure Premiere Pro is running, click "Add Plugin".
+3. Select the manifest.json INSIDE the plugin folder (folder "plugin-source"), NOT a zip file.
+4. Click the ... menu on the plugin -> Load.
+Premiere also must allow developer mode: Premiere -> Settings -> Plugins -> "Enable developer mode" (if that option exists in your version).
+
+If Premiere is older than 25.6, update it in Creative Cloud first.

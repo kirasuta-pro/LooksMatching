@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: sans-serif; font-size: 12px; padding: 10px; color: #ddd; }
+  h3 { margin: 10px 0 6px 0; }
+  .row { margin: 6px 0; display: flex; gap: 6px; align-items: center; }
+  button { flex: 1; padding: 5px; }
+  input[type=text], input[type=password], textarea { flex: 1; width: 100%; }
+  input[type=range] { flex: 1; }
+  pre { white-space: pre-wrap; background: #1a1a1a; padding: 8px; border-radius: 4px; max-height: 220px; overflow: auto; font-size: 11px; }
+  .ok { color: #7fd17f; }
+</style>
+</head>
+<body>
+  <h3>1 · Sources (image frame or video)</h3>
+  <div class="row"><button id="refFrame">Reference: this frame</button><button id="refVideo">Reference: sample clip</button></div>
+  <div id="refState">none</div>
+  <div class="row"><button id="tgtFrame">Target: this frame</button><button id="tgtVideo">Target: sample clip</button></div>
+  <div id="tgtState">none</div>
+  <div class="row"><span>Video samples</span><input id="nSamples" type="range" min="2" max="6" value="4"><span id="nv">4</span></div>
+  <div class="row"><button id="sheet">Save contact sheet PNG (to show Claude in chat)</button></div>
+
+  <h3>2 · Match</h3>
+  <div class="row"><span>Strength</span><input id="strength" type="range" min="0" max="100" value="100"><span id="sv">100</span>%</div>
+  <div class="row"><button id="run">Match look + save .cube</button></div>
+
+  <h3>3 · Claude</h3>
+  <div class="row"><input id="apiKey" type="password" placeholder="Anthropic API key (stored locally)"></div>
+  <div class="row"><input id="model" type="text" value="claude-sonnet-5-5"></div>
+  <div class="row"><span>Rounds</span><input id="rounds" type="range" min="1" max="3" value="2"><span id="rv">2</span></div>
+  <div class="row"><button id="direct">Let Claude direct the grade (sees frames, refines, saves .cube)</button></div>
+  <div class="row"><textarea id="ask" rows="3" placeholder="Ask Claude about the look, e.g. 'how do I fake this sensor's highlights?'"></textarea></div>
+  <div class="row"><button id="send">Ask Claude (attaches your frames)</button></div>
+
+  <pre id="log">Grab a reference and a target (a single frame, or sample a selected clip / in-out range). Then Match, or let Claude direct it.</pre>
+  <script src="main.js"></script>
+</body>
+</html>
